@@ -141,11 +141,19 @@ public class AuthController {
         sessionStore.save(token, user.getId());
 
         Cookie cookie = new Cookie("SESSION_ID", token);
-        cookie.setPath("/");
-        cookie.setHttpOnly(true);
-        cookie.setSecure(true);
-        cookie.setMaxAge(Integer.MAX_VALUE);
-        res.addCookie(cookie);
+        // cookie.setPath("/");
+        // cookie.setHttpOnly(true);
+        // cookie.setSecure(true);
+        // cookie.setMaxAge(Integer.MAX_VALUE);
+        // res.addCookie(cookie);
+            res.setHeader(
+                "Set-Cookie",
+                "SESSION_ID=" + token +
+                        "; Path=/" +
+                        "; HttpOnly" +
+                        "; Secure" +
+                        "; SameSite=None"
+        );
 
         return ResponseEntity.ok(Map.of(
                 "message", "Login Successful",
