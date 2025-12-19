@@ -47,7 +47,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
-                                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                                 .sessionFixation().migrateSession()
                 )
                 .httpBasic(AbstractHttpConfigurer::disable)
