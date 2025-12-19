@@ -77,7 +77,7 @@ public class SecurityConfig {
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
 
         var config = new org.springframework.web.cors.CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://trends-next-frontend.vercel.app","http://localhost:3000"));  // ALLOW ALL
+        config.setAllowedOrigins(List.of("https://trends-next-frontend.vercel.app","https://trends-next-frontend-git-main-nithishs-projects-dcda88c2.vercel.app","https://trends-next-frontend-g0air6kf5-nithishs-projects-dcda88c2.vercel.app","https://trends-next-frontend-nithishs-projects-dcda88c2.vercel.app"));  // ALLOW ALL
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);     // REQUIRED
