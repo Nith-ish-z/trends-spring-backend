@@ -47,8 +47,7 @@ public class Product {
     )
     @org.hibernate.annotations.CollectionId(
         column = @Column(name = "id"),
-        generator = "image-id-gen",
-        type = @org.hibernate.type.LongType.class
+        generator = "image-id-gen"
     )
     @org.hibernate.annotations.GenericGenerator(
         name = "image-id-gen",
@@ -56,4 +55,7 @@ public class Product {
     )
     @Column(name = "image_url", length = 500)
     private List<String> images;
+
+
+    private String ytRef;
 }
