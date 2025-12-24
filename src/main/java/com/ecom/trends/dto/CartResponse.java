@@ -4,7 +4,7 @@ public record CartResponse(
         Long cartId,
         Long productId,
         String productName,
-        String imageUrl,
+        ProductImage imageUrl,
         double price,
         int quantity
 ) {}
