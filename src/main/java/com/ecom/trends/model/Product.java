@@ -53,6 +53,7 @@ public class Product {
         name = "image-id-gen",
         strategy = "identity"
     )
+    @org.hibernate.annotations.Type(value = Long.class)
     @Column(name = "image_url", length = 500)
     private List<String> images;
 
