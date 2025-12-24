@@ -1,6 +1,7 @@
 package com.ecom.trends.dto;
 
 import java.util.List;
+import com.ecom.trends.model.ProductImage;
 
 public class ProductDTO {
 
