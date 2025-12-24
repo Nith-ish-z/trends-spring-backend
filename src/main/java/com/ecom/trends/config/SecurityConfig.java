@@ -76,8 +76,11 @@ public class SecurityConfig {
     @Bean
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
 
+        @Value("${frontend.url}")
+        private String frontendUrl;
+
         var config = new org.springframework.web.cors.CorsConfiguration();
-        config.addAllowedOrigin(${frontend.url});  // ALLOW ALL
+        config.addAllowedOrigin(frontendUrl);
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setAllowCredentials(true);     // REQUIRED
