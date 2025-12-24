@@ -22,6 +22,6 @@ public class FilterProductDTO {
     public Long subCategoryId;
     public String subCategoryName;
 
-    public List<String> images;
+    public List<ProductImage> images;
     public String ytRef;
 }
