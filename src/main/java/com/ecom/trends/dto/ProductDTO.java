@@ -9,7 +9,7 @@ public class ProductDTO {
     public Long categoryId;
     public Long subCategoryId;
     public String desc;
-    public List<String> images;
+    public List<ProductImage> images;
     public String ytRef;
     public Integer stock;
     public double price;
