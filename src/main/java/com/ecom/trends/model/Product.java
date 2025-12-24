@@ -40,22 +40,12 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
-    @ElementCollection
-    @CollectionTable(
-        name = "product_images",
-        joinColumns = @JoinColumn(name = "product_id")
+    @OneToMany(
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
-    @org.hibernate.annotations.CollectionId(
-        column = @Column(name = "id"),
-        generator = "image-id-gen"
-    )
-    @org.hibernate.annotations.GenericGenerator(
-        name = "image-id-gen",
-        strategy = "identity"
-    )
-    @org.hibernate.annotations.Type(value = Long.class)
-    @Column(name = "image_url", length = 500)
-    private List<String> images;
+    private List<ProductImage> images = new ArrayList<>();
 
 
     private String ytRef;
