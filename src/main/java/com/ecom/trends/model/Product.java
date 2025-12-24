@@ -42,11 +42,18 @@ public class Product {
 
     @ElementCollection
     @CollectionTable(
-            name = "product_images",
-            joinColumns = @JoinColumn(name = "product_id")
+        name = "product_images",
+        joinColumns = @JoinColumn(name = "product_id")
     )
-    @Column(name = "image_url")
+    @org.hibernate.annotations.CollectionId(
+        column = @Column(name = "id"),
+        generator = "image-id-gen",
+        type = @org.hibernate.type.LongType.class
+    )
+    @org.hibernate.annotations.GenericGenerator(
+        name = "image-id-gen",
+        strategy = "identity"
+    )
+    @Column(name = "image_url", length = 500)
     private List<String> images;
-
-    private String ytRef;
 }
