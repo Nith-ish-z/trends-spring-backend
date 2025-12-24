@@ -5,5 +5,5 @@ public record CartItemDto(
         String name,
         int count,
         double price,
-        String imageUrl
+        ProductImage imageUrl
 ) {}
