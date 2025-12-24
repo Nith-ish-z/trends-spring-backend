@@ -18,6 +18,9 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
+    @Value("${frontend.url}")
+    private String frontendUrl;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http,SessionAuthFilter sessionAuthFilter) throws Exception {
 
@@ -75,9 +78,6 @@ public class SecurityConfig {
 
     @Bean
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
-
-        @Value("${frontend.url}")
-        private String frontendUrl;
 
         var config = new org.springframework.web.cors.CorsConfiguration();
         config.addAllowedOrigin(frontendUrl);
