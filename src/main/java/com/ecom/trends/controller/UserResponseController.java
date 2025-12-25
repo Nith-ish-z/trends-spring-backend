@@ -194,7 +194,7 @@ public class UserResponseController {
                     dto.categoryId = w.getProduct().getCategory().getId();
                     dto.subCategory = w.getProduct().getSubCategory().getName();
                     dto.subCategoryId = w.getProduct().getSubCategory().getId();
-                    dto.url = w.getProduct().getImages();
+                    dto.url = w.getProduct().getImages().stream().map(ProductImage::getImageUrl).toList();
                     return dto;
                 })
                 .toList();
