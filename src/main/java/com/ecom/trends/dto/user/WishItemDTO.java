@@ -1,7 +1,6 @@
 package com.ecom.trends.dto.user;
 
 import java.util.List;
-import com.ecom.trends.model.ProductImage;
 
 public class WishItemDTO {
     public Long productId;
