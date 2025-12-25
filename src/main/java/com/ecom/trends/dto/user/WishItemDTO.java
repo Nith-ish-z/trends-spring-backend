@@ -11,5 +11,5 @@ public class WishItemDTO {
     public Long categoryId;
     public String subCategory;
     public Long subCategoryId;
-    public List<ProductImage> url;
+    public List<String> url;
 }
