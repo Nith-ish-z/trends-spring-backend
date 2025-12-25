@@ -1,7 +1,6 @@
 package com.ecom.trends.dto.user;
 
 import java.util.List;
-import com.ecom.trends.model.ProductImage;
 
 public class CartItemDTO {
     public Long productId;
@@ -11,6 +10,6 @@ public class CartItemDTO {
     public Long categoryId;
     public String subCategory;
     public Long subCategoryId;
-    public List<ProductImage> url;
+    public List<String> url;
     public int count;
 }
