@@ -6,6 +6,7 @@ import com.ecom.trends.dto.FilterRequestDTO;
 import com.ecom.trends.model.Product;
 import com.ecom.trends.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import com.ecom.trends.model.ProductImage;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
