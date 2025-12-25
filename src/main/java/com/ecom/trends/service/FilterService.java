@@ -101,12 +101,7 @@ public class FilterService {
         dto.desc = p.getDescription();
         dto.price = p.getPrice();
         dto.stock = p.getStock();
-        dto.images = (p.getImages() != null)
-            ? p.getImages()
-                .stream()
-                .map(ProductImage::getImageUrl)
-                .toList()
-            : List.of();
+        dto.images = mapImages(p);
         dto.ytRef = p.getYtRef();
 
         if (p.getBrand() != null) {
@@ -130,5 +125,14 @@ public class FilterService {
                 : null;
 
         return dto;
+    }
+
+    private List<String> mapImages(Product p) {
+    if (p.getImages() == null) return List.of();
+
+    return p.getImages()
+            .stream()
+            .map(ProductImage::getImageUrl)
+            .toList();
     }
 }
