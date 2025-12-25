@@ -101,7 +101,9 @@ public class FilterService {
         dto.desc = p.getDescription();
         dto.price = p.getPrice();
         dto.stock = p.getStock();
-        dto.images = mapImages(p);
+        dto.images = (p.getImages() != null && !p.getImages().isEmpty())
+            ? p.getImages()
+            : null;
         dto.ytRef = p.getYtRef();
 
         if (p.getBrand() != null) {
@@ -120,19 +122,12 @@ public class FilterService {
         }
 
         // Thumbnail for cards
-        dto.images = (p.getImages() != null && !p.getImages().isEmpty())
-                ? p.getImages()
-                : null;
+        dto.images = p.getImages()
+            .stream()
+            .map(ProductImage::getImageUrl)
+            .toList();
 
         return dto;
     }
 
-    private List<String> mapImages(Product p) {
-    if (p.getImages() == null) return List.of();
-
-    return p.getImages()
-            .stream()
-            .map(ProductImage::getImageUrl)
-            .toList();
-    }
 }
