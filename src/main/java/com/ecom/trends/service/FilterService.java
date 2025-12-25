@@ -101,9 +101,10 @@ public class FilterService {
         dto.desc = p.getDescription();
         dto.price = p.getPrice();
         dto.stock = p.getStock();
-        dto.images = (p.getImages() != null && !p.getImages().isEmpty())
-            ? p.getImages()
-            : null;
+        dto.images = p.getImages()
+            .stream()
+            .map(ProductImage::getImageUrl)
+            .toList();
         dto.ytRef = p.getYtRef();
 
         if (p.getBrand() != null) {
