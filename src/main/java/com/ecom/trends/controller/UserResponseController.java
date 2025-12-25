@@ -177,7 +177,7 @@ public class UserResponseController {
                     dto.categoryId = c.getProduct().getCategory().getId();
                     dto.subCategory = c.getProduct().getSubCategory().getName();
                     dto.subCategoryId = c.getProduct().getSubCategory().getId();
-                    dto.url = c.getProduct().getImages();
+                    dto.url = c.getProduct().getImages().stream().map(ProductImage::getImageUrl).toList();
                     dto.count = c.getCount();
                     return dto;
                 })
