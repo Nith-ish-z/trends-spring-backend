@@ -91,7 +91,6 @@ public class FilterService {
         return response;
     }
 
-    /* ---------------- DTO MAPPER ---------------- */
     private FilterProductDTO mapToDTO(Product p) {
 
         FilterProductDTO dto = new FilterProductDTO();
@@ -101,7 +100,12 @@ public class FilterService {
         dto.desc = p.getDescription();
         dto.price = p.getPrice();
         dto.stock = p.getStock();
-        dto.images = p.getImages();
+        dto.images = (p.getImages() != null)
+            ? p.getImages()
+                .stream()
+                .map(ProductImage::getImageUrl)
+                .toList()
+            : List.of();
         dto.ytRef = p.getYtRef();
 
         if (p.getBrand() != null) {
